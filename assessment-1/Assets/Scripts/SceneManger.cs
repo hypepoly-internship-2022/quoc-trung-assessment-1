@@ -5,6 +5,12 @@ public class SceneManger : MonoBehaviour
 {
     bool gamehasEnded = false;
     public float restartDelay = 2f;
+    public GameObject levelWonUI;
+    public void CompleteLevel()
+    {
+        levelWonUI.SetActive(true);
+    }
+
     public void EndGame()
     {
         if(gamehasEnded == false)
@@ -13,6 +19,7 @@ public class SceneManger : MonoBehaviour
             Invoke("Restart", restartDelay);
         }
     }
+
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
